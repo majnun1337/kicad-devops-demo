@@ -1,0 +1,12 @@
+Assembly_outputs
+BOM
+Datasheets
+Docs
+FAB_outputs
+Images
+KiCAD_proj
+Local_fps.pretty
+PDFs
+MDs
+PDFs
+Refs
