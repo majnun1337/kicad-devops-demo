@@ -1,4 +1,219 @@
-EESchema Schematic File Version 2
-EELAYER 25 0
+EESchema Schematic File Version 4
+EELAYER 30 0
 EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L RF_Module:ESP32-WROOM-32 U1
+U 1 1 60C3ACFA
+P 3600 3850
+F 0 "U1" H 3600 5431 50  0000 C CNN
+F 1 "ESP32-WROOM-32" H 3600 5340 50  0000 C CNN
+F 2 "RF_Module:ESP32-WROOM-32" H 3600 2350 50  0001 C CNN
+F 3 "https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32_datasheet_en.pdf" H 3300 3900 50  0001 C CNN
+	1    3600 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Regulator_Linear:AMS1117-3.3 U2
+U 1 1 60C3D08B
+P 9350 1150
+F 0 "U2" H 9350 1392 50  0000 C CNN
+F 1 "AMS1117-3.3" H 9350 1301 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 9350 1350 50  0001 C CNN
+F 3 "http://www.advanced-monolithic.com/pdf/ds1117.pdf" H 9450 900 50  0001 C CNN
+	1    9350 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L fab:C C1
+U 1 1 60C40E94
+P 8900 1500
+F 0 "C1" H 9015 1546 50  0000 L CNN
+F 1 "C" H 9015 1455 50  0000 L CNN
+F 2 "fab:C_1206" H 8938 1350 50  0001 C CNN
+F 3 "" H 8900 1500 50  0001 C CNN
+	1    8900 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L fab:C C2
+U 1 1 60C41F9F
+P 9850 1450
+F 0 "C2" H 9965 1496 50  0000 L CNN
+F 1 "C" H 9965 1405 50  0000 L CNN
+F 2 "fab:C_1206" H 9888 1300 50  0001 C CNN
+F 3 "" H 9850 1450 50  0001 C CNN
+	1    9850 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L fab:R R1
+U 1 1 60C422AB
+P 10700 1550
+F 0 "R1" H 10770 1596 50  0000 L CNN
+F 1 "R" H 10770 1505 50  0000 L CNN
+F 2 "fab:R_1206" V 10630 1550 50  0001 C CNN
+F 3 "~" H 10700 1550 50  0001 C CNN
+	1    10700 1550
+	1    0    0    -1  
+$EndComp
+$Comp
+L fab:SWITCH_JS102011JCQN SW1
+U 1 1 60C428DB
+P 7700 1000
+F 0 "SW1" H 7700 1285 50  0000 C CNN
+F 1 "SWITCH_JS102011JCQN" H 7700 1194 50  0000 C CNN
+F 2 "fab:Switch_SPDT_C&K_JS102011JCQN_9x3.6mm_P2.5mm" H 7700 1000 50  0001 C CNN
+F 3 "https://www.ckswitches.com/media/1422/js.pdf" H 7700 1000 50  0001 C CNN
+	1    7700 1000
+	1    0    0    -1  
+$EndComp
+$Comp
+L fab:Power_+3V3 #PWR0101
+U 1 1 60C4437A
+P 9850 950
+F 0 "#PWR0101" H 9850 800 50  0001 C CNN
+F 1 "Power_+3V3" H 9865 1123 50  0000 C CNN
+F 2 "" H 9850 950 50  0001 C CNN
+F 3 "" H 9850 950 50  0001 C CNN
+	1    9850 950 
+	1    0    0    -1  
+$EndComp
+$Comp
+L fab:LED D1
+U 1 1 60C452F0
+P 10700 1150
+F 0 "D1" V 10647 1228 50  0000 L CNN
+F 1 "LED" V 10738 1228 50  0000 L CNN
+F 2 "fab:LED_1206" H 10700 1150 50  0001 C CNN
+F 3 "https://optoelectronics.liteon.com/upload/download/DS-22-98-0002/LTST-C150CKT.pdf" H 10700 1150 50  0001 C CNN
+	1    10700 1150
+	0    1    1    0   
+$EndComp
+$Comp
+L fab:Conn_PinHeader_FTDI_1x06_P2.54mm_Horizontal_SMD J1
+U 1 1 60C46368
+P 10450 3950
+F 0 "J1" H 10487 4375 50  0000 C CNN
+F 1 "Conn_PinHeader_FTDI_1x06_P2.54mm_Horizontal_SMD" V 10200 3900 50  0000 C CNN
+F 2 "fab:PinHeader_FTDI_01x06_P2.54mm_Horizontal_SMD" H 10450 3950 50  0001 C CNN
+F 3 "~" H 10450 3950 50  0001 C CNN
+	1    10450 3950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9650 1150 9850 1150
+Wire Wire Line
+	9850 1150 9850 950 
+$Comp
+L fab:Power_GND #PWR0102
+U 1 1 60C4C313
+P 9850 1800
+F 0 "#PWR0102" H 9850 1550 50  0001 C CNN
+F 1 "Power_GND" H 9855 1627 50  0000 C CNN
+F 2 "" H 9850 1800 50  0001 C CNN
+F 3 "" H 9850 1800 50  0001 C CNN
+	1    9850 1800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9850 1150 9850 1300
+Connection ~ 9850 1150
+Wire Wire Line
+	9050 1150 8900 1150
+$Comp
+L fab:Power_GND #PWR0103
+U 1 1 60C4DB50
+P 8900 1800
+F 0 "#PWR0103" H 8900 1550 50  0001 C CNN
+F 1 "Power_GND" H 8905 1627 50  0000 C CNN
+F 2 "" H 8900 1800 50  0001 C CNN
+F 3 "" H 8900 1800 50  0001 C CNN
+	1    8900 1800
+	1    0    0    -1  
+$EndComp
+$Comp
+L fab:Power_+5V #PWR0104
+U 1 1 60C4EF7B
+P 8900 950
+F 0 "#PWR0104" H 8900 800 50  0001 C CNN
+F 1 "Power_+5V" H 8915 1123 50  0000 C CNN
+F 2 "" H 8900 950 50  0001 C CNN
+F 3 "" H 8900 950 50  0001 C CNN
+	1    8900 950 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8900 1150 8900 950 
+$Comp
+L fab:Power_+5V #PWR0105
+U 1 1 60C51B7F
+P 10700 900
+F 0 "#PWR0105" H 10700 750 50  0001 C CNN
+F 1 "Power_+5V" H 10715 1073 50  0000 C CNN
+F 2 "" H 10700 900 50  0001 C CNN
+F 3 "" H 10700 900 50  0001 C CNN
+	1    10700 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L fab:Power_GND #PWR0106
+U 1 1 60C525FC
+P 10700 1800
+F 0 "#PWR0106" H 10700 1550 50  0001 C CNN
+F 1 "Power_GND" H 10705 1627 50  0000 C CNN
+F 2 "" H 10700 1800 50  0001 C CNN
+F 3 "" H 10700 1800 50  0001 C CNN
+	1    10700 1800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10700 1800 10700 1700
+Wire Wire Line
+	10700 1400 10700 1300
+Wire Wire Line
+	10700 900  10700 1000
+Wire Wire Line
+	9850 1800 9850 1600
+Wire Wire Line
+	8900 1350 8900 1150
+Connection ~ 8900 1150
+Wire Wire Line
+	8900 1650 8900 1800
+$Comp
+L power:VDD #PWR0107
+U 1 1 60C69F7B
+P 3600 2200
+F 0 "#PWR0107" H 3600 2050 50  0001 C CNN
+F 1 "VDD" H 3615 2373 50  0000 C CNN
+F 2 "" H 3600 2200 50  0001 C CNN
+F 3 "" H 3600 2200 50  0001 C CNN
+	1    3600 2200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3600 2450 3600 2200
+Wire Wire Line
+	7500 1000 7250 1000
+Wire Wire Line
+	7900 900  8100 900 
+Wire Wire Line
+	7900 1100 8100 1100
+Text GLabel 8100 900  2    50   Input ~ 0
+GND
+Text GLabel 7250 1000 0    50   Input ~ 0
+VDD
+Text GLabel 8100 1100 2    50   Input ~ 0
+Power_+3V3
 $EndSCHEMATC
