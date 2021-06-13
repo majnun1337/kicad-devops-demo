@@ -1,6 +1,8 @@
 Assembly_outputs
 BOM
 Datasheets
+Design_guides
+Design_refs
 Docs
 FAB_outputs
 Images
