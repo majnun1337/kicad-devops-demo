@@ -5,11 +5,12 @@ on:
     paths:
     - '**.sch'
     - '**.kicad_pcb'
+    - '.github/workflows/main.yml'
   pull_request:
     paths:
       - '**.sch'
       - '**.kicad_pcb'
-
+      - '.github/workflows/main.yml'
 jobs:
   example:
     runs-on: ubuntu-latest
@@ -22,9 +23,9 @@ jobs:
       # optional - prefix to output defined in config
         dir: docs
       # optional - schematic file
-      # schema: '*.sch'
+        schema: 'KiCAD_proj/devops-demo/devops-demo.sch'
       # optional - PCB design file
-      # board: '*.kicad_pcb'
+        board: 'KiCAD_proj/devops-demo/devops-demo.kicad_pcb'
       # optional - verbose output info
         verbose: 1
     - name: upload results
