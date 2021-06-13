@@ -1,16 +1,16 @@
 name: CI
 
 # Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
+# events but only for the main branch
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
     paths:
       - 'KiCAD_proj/devops-demo/devops-demo.sch'
       - 'KiCAD_proj/devops-demo/devops-demo.kicad_pcb'
       - '.github/workflows/devops-demo.yml'
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
     paths:
       - 'KiCAD_proj/devops-demo/devops-demo.sch'
       - 'KiCAD_proj/devops-demo/devops-demo.kicad_pcb'
