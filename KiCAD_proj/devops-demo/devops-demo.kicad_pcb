@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 7)
+    (drawings 8)
     (tracks 79)
     (zones 0)
     (modules 14)
@@ -941,6 +941,9 @@
     )
   )
 
+  (gr_text MANGO (at 173.355 117.475) (layer F.Cu)
+    (effects (font (size 1.5 1.5) (thickness 0.3)))
+  )
   (gr_line (start 177.8 77.47) (end 177.8 81.915) (layer Edge.Cuts) (width 0.05) (tstamp 60C60658))
   (gr_line (start 125.095 81.915) (end 125.095 77.47) (layer Edge.Cuts) (width 0.05) (tstamp 60C60657))
   (gr_line (start 125.095 109.855) (end 125.095 81.915) (layer Edge.Cuts) (width 0.05) (tstamp 60C5E66D))
