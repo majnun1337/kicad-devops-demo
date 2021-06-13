@@ -101,10 +101,6 @@ F 3 "~" H 10450 3950 50  0001 C CNN
 	1    10450 3950
 	-1   0    0    1   
 $EndComp
-Wire Wire Line
-	9650 1150 9850 1150
-Wire Wire Line
-	9850 1150 9850 950 
 $Comp
 L fab:Power_GND #PWR0102
 U 1 1 60C4C313
@@ -116,9 +112,6 @@ F 3 "" H 9850 1800 50  0001 C CNN
 	1    9850 1800
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	9850 1150 9850 1300
-Connection ~ 9850 1150
 $Comp
 L fab:Power_GND #PWR0103
 U 1 1 60C4DB50
@@ -335,37 +328,6 @@ Wire Wire Line
 	7600 1850 7750 1850
 Wire Wire Line
 	7750 1850 7750 1750
-Text GLabel 7150 1850 0    50   Input ~ 0
-+3V3
-$Comp
-L fab:Power_+3V3 #PWR0115
-U 1 1 60CA40F2
-P 7300 1700
-F 0 "#PWR0115" H 7300 1550 50  0001 C CNN
-F 1 "Power_+3V3" H 7315 1873 50  0000 C CNN
-F 2 "" H 7300 1700 50  0001 C CNN
-F 3 "" H 7300 1700 50  0001 C CNN
-	1    7300 1700
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7150 1850 7300 1850
-Wire Wire Line
-	7300 1850 7300 1700
-Text GLabel 7750 950  2    50   Input ~ 0
-GND
-Wire Wire Line
-	7150 1050 6900 1050
-Text GLabel 6900 1050 0    50   Input ~ 0
-VDD
-Text Label 6950 1050 0    50   ~ 0
-VDD
-Wire Wire Line
-	7550 950  7750 950 
-Wire Wire Line
-	7550 1150 7750 1150
-Text GLabel 7750 1150 2    50   Input ~ 0
-+3V3
 $Comp
 L fab:SWITCH_JS102011JCQN SW1
 U 1 1 60C428DB
@@ -390,17 +352,6 @@ F 3 "~" H 10400 900 50  0001 C CNN
 $EndComp
 Connection ~ 10400 900 
 $Comp
-L fab:Power_PWR_FLAG #FLG0103
-U 1 1 60C99766
-P 3600 2350
-F 0 "#FLG0103" H 3600 2425 50  0001 C CNN
-F 1 "Power_PWR_FLAG" V 3600 2478 50  0000 L CNN
-F 2 "" H 3600 2350 50  0001 C CNN
-F 3 "~" H 3600 2350 50  0001 C CNN
-	1    3600 2350
-	0    1    1    0   
-$EndComp
-$Comp
 L power:VDD #PWR0107
 U 1 1 60C69F7B
 P 3600 2350
@@ -413,7 +364,6 @@ F 3 "" H 3600 2350 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	3600 2450 3600 2350
-Connection ~ 3600 2350
 NoConn ~ 3000 2850
 NoConn ~ 3000 2950
 NoConn ~ 3000 4350
@@ -422,7 +372,6 @@ NoConn ~ 3000 4150
 NoConn ~ 3000 4050
 NoConn ~ 3000 3950
 NoConn ~ 3000 3850
-NoConn ~ 4200 2650
 NoConn ~ 4200 2850
 NoConn ~ 4200 3050
 NoConn ~ 4200 3150
@@ -491,4 +440,44 @@ Text GLabel 4350 2950 2    50   Input ~ 0
 TXO
 Wire Wire Line
 	4200 2950 4350 2950
+Text GLabel 7150 1050 0    50   Input ~ 0
+GND
+NoConn ~ 7550 950 
+$Comp
+L power:VDD #PWR0115
+U 1 1 60C74077
+P 7300 1700
+F 0 "#PWR0115" H 7300 1550 50  0001 C CNN
+F 1 "VDD" H 7315 1873 50  0000 C CNN
+F 2 "" H 7300 1700 50  0001 C CNN
+F 3 "" H 7300 1700 50  0001 C CNN
+	1    7300 1700
+	1    0    0    -1  
+$EndComp
+$Comp
+L fab:Power_+3V3 #PWR0117
+U 1 1 60C7466F
+P 6900 1700
+F 0 "#PWR0117" H 6900 1550 50  0001 C CNN
+F 1 "Power_+3V3" H 6915 1873 50  0000 C CNN
+F 2 "" H 6900 1700 50  0001 C CNN
+F 3 "" H 6900 1700 50  0001 C CNN
+	1    6900 1700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6900 1700 7300 1700
+Wire Wire Line
+	9850 950  9850 1150
+Wire Wire Line
+	9850 1150 9650 1150
+Connection ~ 9850 1150
+Wire Wire Line
+	9850 1150 9850 1300
+Text GLabel 4350 2650 2    50   Input ~ 0
+IO0
+Wire Wire Line
+	4350 2650 4200 2650
+Text GLabel 7550 1150 2    50   Input ~ 0
+IO0
 $EndSCHEMATC
