@@ -30,7 +30,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: Submodule
-        path: KiCAD_proj/devops-demo/lib
+        path: KiCAD_proj/devops-demo/libraries/fab
 
 
   ERC:
@@ -45,7 +45,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: Submodule
-        path: KiCAD_proj/devops-demo/lib
+        path: KiCAD_proj/devops-demo/libraries/fab
 
     - name: Run ERC
       run: |
@@ -69,7 +69,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: Submodule
-        path: KiCAD_proj/devops-demo/lib
+        path: KiCAD_proj/devops-demo/libraries/fab
 
     - name: Run DRC
       run: |
@@ -94,7 +94,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: Submodule
-        path: KiCAD_proj/devops-demo/lib
+        path: KiCAD_proj/devops-demo/libraries/fab
 
     - name: Run schematic stuff
       run: |
@@ -119,7 +119,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: Submodule
-        path: KiCAD_proj/devops-demo/lib
+        path: KiCAD_proj/devops-demo/libraries/fab
 
     - name: Run PCB stuff
       run: |
