@@ -49,7 +49,7 @@ jobs:
 
     - name: Run ERC
       run: |
-        make -C KiCAD_proj/devops-demo/devops-demo.erc
+        make -C KiCAD_proj/devops-demo/ erc
 
     - name: Retrieve results
       uses: actions/upload-artifact@v1
