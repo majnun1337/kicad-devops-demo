@@ -1,0 +1,134 @@
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - 'KiCAD_proj/devops-demo/devops-demo.sch'
+      - 'KiCAD_proj/devops-demo/devops-demo.kicad_pcb'
+      - '.github/workflows/devops-demo.yml'
+  pull_request:
+    branches: [ master ]
+    paths:
+      - 'KiCAD_proj/devops-demo/devops-demo.sch'
+      - 'KiCAD_proj/devops-demo/devops-demo.kicad_pcb'
+      - '.github/workflows/devops-demo.yml'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  get_submodules:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: 'true'
+
+    - name: Store submodule
+      uses: actions/upload-artifact@v1
+      with:
+        name: Submodule
+        path: devops-demo/lib
+
+
+  ERC:
+    runs-on: ubuntu-latest
+    container: setsoft/kicad_auto:latest
+    needs: get_submodules
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Get submodule
+      uses: actions/download-artifact@v2
+      with:
+        name: Submodule
+        path: devops-demo/lib
+
+    - name: Run ERC
+      run: |
+        make -C devops-demo/ erc
+
+    - name: Retrieve results
+      uses: actions/upload-artifact@v1
+      with:
+        name: ERC_Output
+        path: devops-demo/Fabrication
+
+  DRC:
+    runs-on: ubuntu-latest
+    container: setsoft/kicad_auto:latest
+    needs: ERC
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Get submodule
+      uses: actions/download-artifact@v2
+      with:
+        name: Submodule
+        path: devops-demo/lib
+
+    - name: Run DRC
+      run: |
+        make -C devops-demo/ drc
+
+    - name: Retrieve results
+      uses: actions/upload-artifact@v1
+      with:
+        name: DRC_Output
+        path: devops-demo/Fabrication
+
+  FabSch:
+    name: Schematic fabrication files
+    runs-on: ubuntu-latest
+    container: setsoft/kicad_auto:latest
+    needs: ERC
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Get submodule
+      uses: actions/download-artifact@v2
+      with:
+        name: Submodule
+        path: devops-demo/lib
+
+    - name: Run schematic stuff
+      run: |
+        make -C devops-demo/ sch_fab
+
+    - name: Retrieve results
+      uses: actions/upload-artifact@v1
+      with:
+        name: FabSch_Output
+        path: devops-demo/Fabrication
+
+  FabPCB:
+    name: PCB fabrication files
+    runs-on: ubuntu-latest
+    container: setsoft/kicad_auto:latest
+    needs: DRC
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Get submodule
+      uses: actions/download-artifact@v2
+      with:
+        name: Submodule
+        path: devops-demo/lib
+
+    - name: Run PCB stuff
+      run: |
+        make -C devops-demo/ pcb_fab
+
+    - name: Retrieve results
+      uses: actions/upload-artifact@v1
+      with:
+        name: FabPCB_Output
+        path: devops-demo/Fabrication
+
+
