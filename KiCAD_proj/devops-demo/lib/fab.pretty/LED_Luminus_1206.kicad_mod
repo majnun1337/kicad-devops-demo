@@ -1,0 +1,36 @@
+(module LED_Luminus_1206 (layer F.Cu) (tedit 60AE5C02)
+  (fp_text reference REF** (at 0 2.25) (layer F.SilkS)
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (fp_text value LED_Luminus_1206 (at 0 -2) (layer F.Fab)
+    (effects (font (size 1 1) (thickness 0.15)))
+  )
+  (fp_line (start -2.19 1.25) (end -2.19 -1.25) (layer F.CrtYd) (width 0.05))
+  (fp_line (start 2.27 1.25) (end -2.19 1.25) (layer F.CrtYd) (width 0.05))
+  (fp_line (start 2.27 -1.25) (end 2.27 1.25) (layer F.CrtYd) (width 0.05))
+  (fp_line (start -2.19 -1.25) (end 2.27 -1.25) (layer F.CrtYd) (width 0.05))
+  (fp_line (start -1.04 0.75) (end 1.6 0.75) (layer F.SilkS) (width 0.12))
+  (fp_line (start 1.6 -0.75) (end -1.06 -0.75) (layer F.SilkS) (width 0.12))
+  (fp_line (start -1.5 0.75) (end -1.5 -0.75) (layer F.Fab) (width 0.1))
+  (fp_line (start 1.6 0.75) (end -1.5 0.75) (layer F.Fab) (width 0.1))
+  (fp_line (start 1.6 -0.75) (end 1.6 0.75) (layer F.Fab) (width 0.1))
+  (fp_line (start -1.5 -0.75) (end 1.6 -0.75) (layer F.Fab) (width 0.1))
+  (pad 2 smd custom (at -1.25 0) (size 0.8 0.8) (layers F.Cu F.Paste F.Mask)
+    (zone_connect 0)
+    (options (clearance outline) (anchor rect))
+    (primitives
+      (gr_poly (pts
+         (xy 0 -0.5) (xy 0.4 -0.5) (xy 0.4 0.5) (xy 0 0.5)) (width 0))
+      (gr_poly (pts
+         (xy 0 -1) (xy 0 1) (xy -0.7 1) (xy -0.7 -1)) (width 0))
+    ))
+  (pad 1 smd custom (at 1.35 0) (size 0.8 0.8) (layers F.Cu F.Paste F.Mask)
+    (zone_connect 0)
+    (options (clearance outline) (anchor rect))
+    (primitives
+      (gr_poly (pts
+         (xy 0 -0.4) (xy 0.7 -0.4) (xy 0.7 0.4) (xy 0 0.4)) (width 0))
+      (gr_poly (pts
+         (xy 0 -0.5) (xy -1.65 -0.5) (xy -1.65 0.5) (xy 0 0.5)) (width 0))
+    ))
+)

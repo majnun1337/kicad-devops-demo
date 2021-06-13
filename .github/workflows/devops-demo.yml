@@ -30,7 +30,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: Submodule
-        path: devops-demo/lib
+        path: KiCAD_proj/devops-demo/lib
 
 
   ERC:
@@ -45,7 +45,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: Submodule
-        path: devops-demo/lib
+        path: KiCAD_proj/devops-demo/lib
 
     - name: Run ERC
       run: |
@@ -55,7 +55,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: ERC_Output
-        path: devops-demo/Fabrication
+        path: KiCAD_proj/devops-demo/Fabrication
 
   DRC:
     runs-on: ubuntu-latest
@@ -69,17 +69,17 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: Submodule
-        path: devops-demo/lib
+        path: KiCAD_proj/devops-demo/lib
 
     - name: Run DRC
       run: |
-        make -C devops-demo/ drc
+        make -C KiCAD_proj/devops-demo/ drc
 
     - name: Retrieve results
       uses: actions/upload-artifact@v1
       with:
         name: DRC_Output
-        path: devops-demo/Fabrication
+        path: KiCAD_proj/devops-demo/Fabrication
 
   FabSch:
     name: Schematic fabrication files
@@ -94,17 +94,17 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: Submodule
-        path: devops-demo/lib
+        path: KiCAD_proj/devops-demo/lib
 
     - name: Run schematic stuff
       run: |
-        make -C devops-demo/ sch_fab
+        make -C KiCAD_proj/devops-demo/ sch_fab
 
     - name: Retrieve results
       uses: actions/upload-artifact@v1
       with:
         name: FabSch_Output
-        path: devops-demo/Fabrication
+        path: KiCAD_proj/devops-demo/Fabrication
 
   FabPCB:
     name: PCB fabrication files
@@ -119,16 +119,16 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: Submodule
-        path: devops-demo/lib
+        path: KiCAD_proj/devops-demo/lib
 
     - name: Run PCB stuff
       run: |
-        make -C devops-demo/ pcb_fab
+        make -C KiCAD_proj/devops-demo/ pcb_fab
 
     - name: Retrieve results
       uses: actions/upload-artifact@v1
       with:
         name: FabPCB_Output
-        path: devops-demo/Fabrication
+        path: KiCAD_proj/devops-demo/Fabrication
 
 
